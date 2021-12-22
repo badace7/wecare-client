@@ -16,14 +16,12 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { green } from "@mui/material/colors";
-import Logo from "../../../components/Logo";
-import Cart from "../../../components/Cart";
+
 
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // import Link from "@mui/material/Link";
 import { Link } from "react-router-dom";
-import Advertisement from "../../../components/Advertisement";
 
 const Nav = styled("nav")(({ theme }) => ({
   backgroundColor: green[100],
@@ -192,9 +190,6 @@ export default function Navbar() {
     // sx={{ flexGrow: 1 }}
     >
       <LinkContainer>
-        <Logo />
-        <Advertisement />
-        <Cart />
         <Link to="/" color="inherit">
           Account Management{" "}
         </Link>
@@ -203,18 +198,6 @@ export default function Navbar() {
         <Link to="/" color="inherit">
           Home
         </Link>
-        <Link to="/book" color="inherit">
-          Book
-        </Link>
-        {/* <Link to="/" color="inherit">
-          What's Popular
-        </Link>
-        <Link to="/" color="inherit">
-          Bargain
-        </Link>
-        <Link to="/" color="inherit">
-          Gifts
-        </Link> */}
         <Link to="/login" color="inherit">
           Login
         </Link>
