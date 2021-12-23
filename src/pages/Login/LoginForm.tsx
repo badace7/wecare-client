@@ -18,7 +18,7 @@ function Copyright(props: any) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        WeCare
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -28,17 +28,24 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function LoginForm() {
+const LoginForm = (props:any) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    // console.log("props",props);
+    
+    // props.setEmail(data.get('email'));
+    // props.setPassword(data.get('password'));
+    
+    // console.log(`data all:`, data.get('email'));
+    // console.log(`data all:`, data.get('password'));
+    
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
   };
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -55,7 +62,7 @@ export default function LoginForm() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+          Se connecter
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -67,6 +74,7 @@ export default function LoginForm() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e)=> props.setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -77,6 +85,8 @@ export default function LoginForm() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e)=> props.setPassword(e.target.value)}
+            
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -87,18 +97,19 @@ export default function LoginForm() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={props.handleClick}
             >
-              Sign In
+              Connexion
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  Mot de passe oublié ?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/register" variant="body2">
+                  {"Don't have an account? Register"}
                 </Link>
               </Grid>
             </Grid>
@@ -109,3 +120,5 @@ export default function LoginForm() {
     </ThemeProvider>
   );
 }
+
+export default LoginForm

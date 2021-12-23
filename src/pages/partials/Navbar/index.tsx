@@ -126,7 +126,7 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profil</MenuItem>
       <MenuItem onClick={handleMenuClose}>New Titles</MenuItem>
 
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
@@ -197,6 +197,9 @@ export default function Navbar() {
       <LinkContainer>
         <Link to="/" color="inherit">
           Home
+        </Link>
+        <Link to="/register" color="inherit">
+          Register
         </Link>
         <Link to="/login" color="inherit">
           Login
