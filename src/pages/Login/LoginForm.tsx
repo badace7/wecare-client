@@ -70,7 +70,7 @@ const LoginForm = (props:any) => {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Addresse email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -81,7 +81,7 @@ const LoginForm = (props:any) => {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Mot de passe"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -90,7 +90,7 @@ const LoginForm = (props:any) => {
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Se souvenir de moi"
             />
             <Button
               type="submit"
@@ -109,7 +109,7 @@ const LoginForm = (props:any) => {
               </Grid>
               <Grid item>
                 <Link href="/register" variant="body2">
-                  {"Don't have an account? Register"}
+                  {"Vous n'avez pas encore de compte ? Inscrivez-vous"}
                 </Link>
               </Grid>
             </Grid>

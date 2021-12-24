@@ -1,4 +1,6 @@
 import * as React from "react";
+
+import { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -17,6 +19,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { green } from "@mui/material/colors";
 
+import { useSelector, useDispatch } from "react-redux";
+import { userStore } from "../../../types/user.types";
 
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -92,6 +96,9 @@ export default function Navbar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const userState = useSelector((state: { user: userStore }) => state.user);
+  console.log("userState >>> :", userState);
+
   const handleProfileMenuOpen = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
@@ -127,9 +134,8 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>New Titles</MenuItem>
 
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Mon compte</MenuItem>
     </Menu>
   );
 
@@ -180,39 +186,53 @@ export default function Navbar() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>Profil</p>
       </MenuItem>
     </Menu>
   );
+
+  function getUserData() {
+    return (dispatch: any, getState: any) => {
+      const state = getState();
+      console.log(`store state: `, state);
+      // const userLoggedIn = state.currentUser.isLogged;
+    };
+  }
+
+  // useEffect(() => {
+  //   getUserData();
+  //   return () => {};
+  // }, [])
 
   return (
     <Nav
     // sx={{ flexGrow: 1 }}
     >
       <LinkContainer>
+
+      <Link to="/" color="inherit">
+          WeCare Logo
+        </Link>
+
         <Link to="/" color="inherit">
-          Account Management{" "}
+          Accueil
         </Link>
-      </LinkContainer>
-      <LinkContainer>
-        <Link to="/" color="inherit">
-          Home
-        </Link>
-        <Link to="/register" color="inherit">
-          Register
-        </Link>
-        <Link to="/login" color="inherit">
-          Login
-        </Link>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-          />
-        </Search>
+
+        {userState.isLogged ? (
+          <Link to="/" color="inherit">
+            Compte{" "}
+          </Link>
+        ) : (
+          <>
+            {" "}
+            <Link to="/register" color="inherit">
+              S'inscrire
+            </Link>
+            <Link to="/login" color="inherit">
+              Se connecter
+            </Link>
+          </>
+        )}
       </LinkContainer>
       {renderMobileMenu}
       {renderMenu}

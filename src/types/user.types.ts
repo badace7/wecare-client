@@ -5,6 +5,8 @@ export type user = {
   access_token: string;
   first_name: string;
   last_name: string;
+  gender: string;
+  postal_code: string;
   city: string;
   address: string;
   social_security_number: string;

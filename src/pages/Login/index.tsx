@@ -26,9 +26,12 @@ const LoginPage = () => {
       const user = response.data;
       
       localStorage.setItem('access-token', user.access_token);
+
+      
       dispatch(login(user));
-  
-      navigate('/login');
+      console.log('localStorage access token: ', localStorage.getItem('access-token'));
+      console.log('localStorage refresh token: ', localStorage.getItem('refresh-token'));
+      navigate('/');
   
   
     } catch(error:any) {
