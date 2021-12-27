@@ -31,6 +31,7 @@ const LoginPage = () => {
       dispatch(login(user));
       console.log('localStorage access token: ', localStorage.getItem('access-token'));
       console.log('localStorage refresh token: ', localStorage.getItem('refresh-token'));
+      
       navigate('/');
   
   

@@ -1,10 +1,13 @@
-import { userStore, action } from "../../types/user.types";
+import { userStore, action, jwtToken } from "../../types/user.types";
+import jwt_decode from "jwt-decode";
 
 // User initial state define the user as null
 // He is inexistant by default
 const initialState = {
   user: null,
   isLogged: false,
+  role: "visitor"
+
 };
 // init state of type "userStore" with clean state
 
@@ -18,12 +21,28 @@ const initialState = {
 const userReducers = (state: userStore = initialState, action: action) => {
   const { type, payload } = action;
 
+// const decodedToken = jwt_decode(payload);
+// let payload = {
+//   access_token: dzaihnazidnazid;
+// }
+// payload.access_token;
+
+/**
+ * @REVOIR ACCESS TOKEN
+ */
+
+
+
+console.log(payload);
+
   switch (type) {
     case "LOGIN":
+      console.log(`PAYLOAD`,payload);
       return { // update states of redux store
         ...state,
         user: payload,
         isLogged: true,
+        // role: decodedToken.role
       };
 
     //   case "REGISTER":

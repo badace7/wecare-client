@@ -72,6 +72,8 @@ const LoginForm = (props:any) => {
               id="email"
               label="Addresse email"
               name="email"
+              defaultValue="doejoe@protonmail.com"
+
               autoComplete="email"
               autoFocus
               onChange={(e)=> props.setEmail(e.target.value)}
@@ -84,6 +86,7 @@ const LoginForm = (props:any) => {
               label="Mot de passe"
               type="password"
               id="password"
+              defaultValue="!1Password"
               autoComplete="current-password"
               onChange={(e)=> props.setPassword(e.target.value)}
             

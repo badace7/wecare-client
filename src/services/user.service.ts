@@ -4,14 +4,14 @@ import http from "./config";
 
 export const signIn = async (
   user: Omit<user, "access_token" | "refresh_token" | "first_name" | "last_name" | "city" | "address" | "phone_number" |
-  "social_security_number" | "id" | "gender" | "postal_code">
+  "social_security_number" | "id" | "gender" | "postal_code" | "role">
 ): Promise<any> => { // <- what should be returned
   return await http.post("/users/login", user);
 };
 
 
 export const register = async (
-    user: Omit<user, "access_token" | "refresh_token" | "id">
+    user: Omit<user, "access_token" | "refresh_token" | "id" | "role">
   ): Promise<any> => { 
     return await http.post("/users/register", user);
   };
