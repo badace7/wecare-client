@@ -1,12 +1,12 @@
 import { user } from '../types/user.types';
 import http from "./config";
 
-
+// user: Omit<user, "access_token" | "refresh_token" | "first_name" | "last_name" | "city" | "address" | "phone_number" |
+// "social_security_number" | "id" | "gender" | "postal_code" | "role">
 export const signIn = async (
-  user: Omit<user, "access_token" | "refresh_token" | "first_name" | "last_name" | "city" | "address" | "phone_number" |
-  "social_security_number" | "id" | "gender" | "postal_code" | "role">
-): Promise<any> => { // <- what should be returned
-  return await http.post("/users/login", user);
+  user: Omit<user, "access_token" | "refresh_token" | "id" | "role">
+): Promise<any> => {
+  return await http.post("/users/login", user); // <- what should be returned
 };
 
 

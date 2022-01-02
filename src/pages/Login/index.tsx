@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { userServices } from "../../services";
 import { login } from "../../store/actions/user.actions";
-
+  import jwt_decode from "jwt-decode";
+  import { userToken } from "../../types/user.types";
+  import { useEffect } from "react";
 
 // : JSX.Element
 const LoginPage = () => {
@@ -16,6 +18,14 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [error , setError] = useState(false);
 
+useEffect(() => {
+console.log(`loginForm:`,email, password);
+
+
+  return () => {
+  }
+}, [email, password])
+
 
   const dispatch = useDispatch()
 
@@ -23,15 +33,21 @@ const LoginPage = () => {
     try {
     
       const response = await userServices.signIn({email, password});
-      const user = response.data;
+      console.log(`response`, response);
       
-      localStorage.setItem('access-token', user.access_token);
+      const user = response.data;
+      console.log(`USER DATA SERVICE`, user);
+      
+      
+      // localStorage.setItem('access-token', user.access_token);
 
       
       dispatch(login(user));
-      console.log('localStorage access token: ', localStorage.getItem('access-token'));
-      console.log('localStorage refresh token: ', localStorage.getItem('refresh-token'));
-      
+      // console.log('dispatch(login ->) localStorage access token: ', localStorage.getItem('access-token'));
+
+      // console.log('localStorage refresh token: ', localStorage.getItem('refresh-token'));
+      // const decodedToken: userToken = jwt_decode(user.access_token);
+      // console.log(`decodedToken ROLE >>>>>>> :`, decodedToken.role);
       navigate('/');
   
   

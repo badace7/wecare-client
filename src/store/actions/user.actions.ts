@@ -1,5 +1,6 @@
 import {user, userToken} from "../../types/user.types";
 
+
 import jwt_decode from "jwt-decode";
  
  
@@ -19,15 +20,27 @@ export const login = (user: user) => {
 
   // const decodedToken: userToken = jwt_decode(user.access_token);
   // console.log(`decodedToken:`, decodedToken.id);
+  // console.log(`decodedToken:`, decodedToken.role);
 
   // user.id = decodedToken.id;
   // user.role = decodedToken.role;
   // console.log(`USER`, user);
+
+  // const userStore = useSelector((state: { user: userStore }) => state.user);
+  const decodedToken: userToken = jwt_decode(user.access_token);
+  // console.log(`decodedToken ROLE >>>>>>> :`, decodedToken.role);
+
+  // console.log(`user store > role :`,
+  // userStore.role
+  // );
+  console.log(`user data>>>`,user);
   
-  
+   
   return {
     type: "LOGIN",
-    payload: user,
+    payload: {
+   user
+    },
   };
 };
 

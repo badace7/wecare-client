@@ -1,4 +1,4 @@
-import internal from "stream";
+
 
 export type user = {
   id: string;
@@ -25,7 +25,7 @@ export type userStore = {
 
 export type action = { 
     type: string; 
-    payload: object | string | boolean | jwtToken ;
+    payload: object | string | boolean;
  };
 
  export type userToken = {

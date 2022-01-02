@@ -64,6 +64,19 @@ const LoginForm = (props:any) => {
           <Typography component="h1" variant="h5">
           Se connecter
           </Typography>
+
+          <p>
+
+          doejoe@protonmail.com
+
+
+          </p>
+          <p>
+          
+!1Password
+
+
+</p>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -72,8 +85,8 @@ const LoginForm = (props:any) => {
               id="email"
               label="Addresse email"
               name="email"
-              defaultValue="doejoe@protonmail.com"
-
+              // defaultValue="doejoe@protonmail.com"
+              // value="doejoe@protonmail.com"
               autoComplete="email"
               autoFocus
               onChange={(e)=> props.setEmail(e.target.value)}
@@ -86,7 +99,8 @@ const LoginForm = (props:any) => {
               label="Mot de passe"
               type="password"
               id="password"
-              defaultValue="!1Password"
+              // defaultValue="!1Password"
+              // value="!1Password"
               autoComplete="current-password"
               onChange={(e)=> props.setPassword(e.target.value)}
             

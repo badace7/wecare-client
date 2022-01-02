@@ -32,17 +32,16 @@ const userReducers = (state: userStore = initialState, action: action) => {
  */
 
 
-
-console.log(payload);
-
   switch (type) {
     case "LOGIN":
-      console.log(`PAYLOAD`,payload);
+console.log(`user.reducer > payload>>>>>`,payload);
+
+
       return { // update states of redux store
         ...state,
         user: payload,
         isLogged: true,
-        // role: decodedToken.role
+        // role: payload.role // <<<<<<
       };
 
     //   case "REGISTER":
