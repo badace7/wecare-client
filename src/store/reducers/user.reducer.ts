@@ -27,6 +27,8 @@ const userReducers = (state: userStore = initialState, action: action) => {
 // }
 // payload.access_token;
 
+
+
 /**
  * @REVOIR ACCESS TOKEN
  */
@@ -39,9 +41,9 @@ console.log(`user.reducer > payload>>>>>`,payload);
 
       return { // update states of redux store
         ...state,
-        user: payload,
+        user: payload.user,
         isLogged: true,
-        // role: payload.role // <<<<<<
+        role: payload.role // <<<<<<
       };
 
     //   case "REGISTER":

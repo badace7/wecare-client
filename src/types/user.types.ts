@@ -1,7 +1,5 @@
-
-
 export type user = {
-  id: string;
+  id?: string;
   email?: string;
   password?: string;
   access_token: string;
@@ -14,7 +12,6 @@ export type user = {
   social_security_number?: string;
   phone_number?: string;
   refresh_token?: string;
-  role: string;
 };
 
 export type userStore = {
@@ -23,22 +20,26 @@ export type userStore = {
   role: string;
 };
 
-export type action = { 
-    type: string; 
-    payload: object | string | boolean;
- };
+export type action = {
+  type: string;
+  payload: payload;
+};
 
- export type userToken = {
-   id: string,
-   role: string,
-   iat: number,
-   exp: number
- }
+export type payload = { // payload for user
+      user: user;
+      role: string;
+}
 
+export type userToken = {
+  id: string;
+  role: string;
+  iat: number;
+  exp: number;
+};
 
- /**
-  * @REVOIR TYPE POUR ACCESS TOKEN
-  */
- export type jwtToken = {
-    access_token: string;
- }
+/**
+ * @REVOIR TYPE POUR ACCESS TOKEN
+ */
+export type jwtToken = {
+  access_token: string;
+};

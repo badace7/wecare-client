@@ -97,7 +97,7 @@ export default function Navbar() {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const userState = useSelector((state: { user: userStore }) => state.user);
-  console.log("userState >>> :", userState);
+  // console.log("userState >>> :", userState);
 
   const handleProfileMenuOpen = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -217,6 +217,20 @@ export default function Navbar() {
         <Link to="/" color="inherit">
           Accueil
         </Link>
+
+<div>
+
+<p>
+
+Rôle : {userState.role}
+{" "}
+isLogged : {userState.isLogged ? "true" : "false"}
+{" "}
+First name : {userState.user?.first_name ? userState.user?.first_name : "null"}
+</p>
+
+
+</div>
 
         {userState.isLogged ? (
           <Link to="/" color="inherit">

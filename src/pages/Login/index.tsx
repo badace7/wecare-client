@@ -33,10 +33,10 @@ console.log(`loginForm:`,email, password);
     try {
     
       const response = await userServices.signIn({email, password});
-      console.log(`response`, response);
+      // console.log(`response`, response);
       
       const user = response.data;
-      console.log(`USER DATA SERVICE`, user);
+      // console.log(`USER DATA SERVICE`, user);
       
       
       // localStorage.setItem('access-token', user.access_token);
