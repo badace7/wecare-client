@@ -15,7 +15,6 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
-
 function Copyright(props: any) {
   return (
     <Typography
@@ -46,7 +45,6 @@ export default function SignUp(props: any) {
     event.preventDefault();
     props.handleClick();
     navigate("/login");
-
   };
 
   return (
@@ -73,21 +71,26 @@ export default function SignUp(props: any) {
             // onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
-            <FormControl fullWidth>
-              <InputLabel id="gender">Genre *</InputLabel>
-              <Select
-                labelId="gender"
-                id="gender"
-                label="Genre"
-                // value={(e:any)=> e.target.value}
-                onChange={(e) => props.setGender(e.target.value)}
-              >
-                <MenuItem value={"Homme"}>Homme</MenuItem>
-                <MenuItem value={"Femme"}>Femme</MenuItem>
-                <MenuItem value={"Autre"}>Autre</MenuItem>
-              </Select>
-            </FormControl>
+         
+
             <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <FormControl fullWidth>
+                  <InputLabel id="gender">Genre *</InputLabel>
+                  <Select
+                    labelId="gender"
+                    id="gender"
+                    label="Genre"
+                    // value={(e:any)=> e.target.value}
+                    onChange={(e) => props.setGender(e.target.value)}
+                  >
+                    <MenuItem value={"Homme"}>Homme</MenuItem>
+                    <MenuItem value={"Femme"}>Femme</MenuItem>
+                    <MenuItem value={"Autre"}>Autre</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
@@ -228,7 +231,7 @@ export default function SignUp(props: any) {
             >
               S'inscrire
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center">
               <Grid item>
                 <Link href="/login" variant="body2">
                   Vous avez déjà un compte ? Connectez-vous

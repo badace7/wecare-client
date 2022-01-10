@@ -28,8 +28,20 @@ import { userStore } from "../../../types/user.types";
 import { Link } from "react-router-dom";
 
 const Nav = styled("nav")(({ theme }) => ({
-  backgroundColor: green[100],
+  backgroundColor: "#005AA1",
+  height: "5.5rem",
 }));
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
+const Logo = styled(Link)`
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+`;
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -55,7 +67,7 @@ const Search = styled("div")(({ theme }) => ({
 const LinkContainer = styled("div")(({ theme }) => ({
   // color: "red",
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "space-evenly",
   fontSize: "1rem",
   alignItems: "center",
 }));
@@ -209,42 +221,29 @@ export default function Navbar() {
     // sx={{ flexGrow: 1 }}
     >
       <LinkContainer>
-
-      <Link to="/" color="inherit">
+        <Logo to="/" color="inherit">
           WeCare Logo
-        </Link>
+        </Logo>
 
-        <Link to="/" color="inherit">
+        <NavLink to="/" color="inherit">
           Accueil
-        </Link>
+        </NavLink>
 
-<div>
-
-<p>
-
-Rôle : {userState.role}
-{" "}
-isLogged : {userState.isLogged ? "true" : "false"}
-{" "}
-First name : {userState.user?.first_name ? userState.user?.first_name : "null"}
-</p>
-
-
-</div>
+      
 
         {userState.isLogged ? (
-          <Link to="/" color="inherit">
+          <NavLink to="/" color="inherit">
             Compte{" "}
-          </Link>
+          </NavLink>
         ) : (
           <>
             {" "}
-            <Link to="/register" color="inherit">
+            <NavLink to="/register" color="inherit">
               S'inscrire
-            </Link>
-            <Link to="/login" color="inherit">
+            </NavLink>
+            <NavLink to="/login" color="inherit">
               Se connecter
-            </Link>
+            </NavLink>
           </>
         )}
       </LinkContainer>
