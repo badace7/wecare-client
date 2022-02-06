@@ -225,18 +225,22 @@ export default function Navbar() {
           WeCare Logo
         </Logo>
 
-        <NavLink to="/" color="inherit">
+        {/* <NavLink to="/" color="inherit">
           Accueil
-        </NavLink>
-
-      
+        </NavLink> */}
 
         {userState.isLogged ? (
           <NavLink to="/" color="inherit">
             Compte{" "}
           </NavLink>
         ) : (
-          <>
+          <Box
+            sx={{
+              display: "flex",
+              backgroundColor: "red",
+              justifyContent: "center",
+            }}
+          >
             {" "}
             <NavLink to="/register" color="inherit">
               S'inscrire
@@ -244,7 +248,7 @@ export default function Navbar() {
             <NavLink to="/login" color="inherit">
               Se connecter
             </NavLink>
-          </>
+          </Box>
         )}
       </LinkContainer>
       {renderMobileMenu}
