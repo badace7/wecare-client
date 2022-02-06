@@ -9,13 +9,16 @@ import jwt_decode from "jwt-decode";
  */
 export const login = (user: user) => {
   //                    ^ token containing user data
-
+  console.log(`!! login > user`, user);
   if(user.access_token) {
     localStorage.setItem("access_token", user.access_token);
+    console.log(`!! localStorage.getItem("access_token")`,localStorage.getItem("access_token"));
   }
-  if(user.refresh_token) {
-    localStorage.setItem("refresh_token", user.refresh_token);
-  }
+  // TODO
+  // if(user.refresh_token) {
+  //   localStorage.setItem("refresh_token", user.refresh_token);
+  //   console.log(`!! localStorage.getItem("refresh_token")`,localStorage.getItem("refresh_token"));
+  // }
   // decode token.role
   
   // const decodedToken: userToken = jwt_decode(user.access_token);

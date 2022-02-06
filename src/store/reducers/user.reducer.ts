@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 // He is inexistant by default
 const initialState = {
   user: null,
-  isLogged: false,
+  isLogged: (localStorage.getItem("access_token") ? true : false), // TODO
   role: "visitor"
 
 };

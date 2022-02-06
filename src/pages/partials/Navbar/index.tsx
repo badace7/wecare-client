@@ -206,7 +206,7 @@ export default function Navbar() {
   function getUserData() {
     return (dispatch: any, getState: any) => {
       const state = getState();
-      console.log(`store state: `, state);
+      console.log(`!!! store state: `, state);
       // const userLoggedIn = state.currentUser.isLogged;
     };
   }

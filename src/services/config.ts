@@ -25,14 +25,15 @@ http.interceptors.response.use(
     }
 
     try {
-      const response = await http.get("/users/auth/refresh"); // sends back a access_token
-      console.log(response);
-      const access_token = response.data.access_token;
+      // const response = await http.get("/users/auth/refresh"); // sends back a access_token
+      // console.log(response);
+      // const access_token = response.data.access_token;
 // refresh access_token
-      localStorage.setItem("access_token", access_token);
-      error.hasRefreshedToken = true;
+console.log(`axios (http) on reponse action`)
+      // localStorage.setItem("access_token", access_token);
+      // error.hasRefreshedToken = true;
 
-      return Promise.reject(error);
+      // return Promise.reject(error);
     } catch (error) {
       const tokenError = new Error("Cannot refresh token");
       return Promise.reject(tokenError);

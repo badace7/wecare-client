@@ -37,7 +37,7 @@ const LoginForm = (props: any) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log(`login data`, data)
+    console.log(`@@ login data`, data)
     
     
 
