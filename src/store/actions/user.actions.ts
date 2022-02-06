@@ -10,26 +10,31 @@ import jwt_decode from "jwt-decode";
 export const login = (user: user) => {
   //                    ^ token containing user data
 
-  localStorage.setItem("access-token", user.access_token);
+  if(user.access_token) {
+    localStorage.setItem("access_token", user.access_token);
+  }
+  if(user.refresh_token) {
+    localStorage.setItem("refresh_token", user.refresh_token);
+  }
   // decode token.role
-
+  
   // const decodedToken: userToken = jwt_decode(user.access_token);
   // console.log(`decodedToken:`, decodedToken.id);
   // console.log(`decodedToken:`, decodedToken.role);
-
+  
   // user.id = decodedToken.id;
   // console.log(`USER`, user);
-
+  
   // const userStore = useSelector((state: { user: userStore }) => state.user);
-  const decodedToken: userToken = jwt_decode(user.access_token);
   // console.log(`decodedToken ROLE >>>>>>> :`, decodedToken.role);
   // user.role = decodedToken.role;
-
+  const decodedToken: userToken = (user.access_token) ? jwt_decode(user.access_token) : {};
+  
   // console.log(`user store > role :`,
   // userStore.role
   // );
   console.log(`user POP>>>`, user);
-
+  
   return {
     type: "LOGIN",
     payload: {
@@ -45,7 +50,7 @@ export const login = (user: user) => {
  * @returns The type if the action and remove the user datas in the payload property.
  */
 export const logout = () => {
-  localStorage.removeItem("access-token");
+  localStorage.removeItem("access_token");
   return {
     type: "LOGOUT",
     payload: false,

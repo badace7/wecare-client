@@ -14,8 +14,8 @@ const LoginPage = () => {
 //                        ^ Function should return this (component type)
   let navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("doejoe@protonmail.com");
+  const [password, setPassword] = useState("!1Password");
   const [error , setError] = useState(false);
 
 useEffect(() => {

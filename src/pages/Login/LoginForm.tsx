@@ -37,19 +37,10 @@ const LoginForm = (props: any) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log("props",props);
+    console.log(`login data`, data)
+    
+    
 
-    // props.setEmail(data.get('email'));
-    // props.setPassword(data.get('password'));
-
-    // console.log(`data all:`, data.get('email'));
-    // console.log(`data all:`, data.get('password'));
-
-    // eslint-disable-next-line no-console
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
   };
   return (
     <ThemeProvider theme={theme}>

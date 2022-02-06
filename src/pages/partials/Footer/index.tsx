@@ -25,9 +25,24 @@ export default function Footer() {
     <FooterContainer>
       <div>
         <p>
-          Rôle : {userState.role} isLogged :{" "}
-          {userState.isLogged ? "true" : "false"} First name :{" "}
+          Rôle: {userState.role}
+          <br />
+           isLogged:
+         {" "}
+          {userState.isLogged ? "true" : "false"}
+          <br />
+           First name:{" "}
           {userState.user?.first_name ? userState.user?.first_name : "null"}
+          <br />
+          {"access token: "}
+          {userState.user?.access_token ? userState.user?.access_token : "null"}
+          <br /> 
+          {"refresh token: "}
+
+          {userState.user?.refresh_token ? userState.user?.refresh_token : "null"}
+          <br />
+
+
         </p>
       </div>
     </FooterContainer>

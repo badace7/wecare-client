@@ -78,6 +78,7 @@ export default function SignUp(props: any) {
                 <FormControl fullWidth>
                   <InputLabel id="gender">Genre *</InputLabel>
                   <Select
+                  defaultValue={"Homme"}
                     labelId="gender"
                     id="gender"
                     label="Genre"
@@ -95,6 +96,8 @@ export default function SignUp(props: any) {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
+                  defaultValue={"Joe"}
+
                   required
                   fullWidth
                   id="firstName"
@@ -108,6 +111,8 @@ export default function SignUp(props: any) {
                   required
                   fullWidth
                   id="lastName"
+                  defaultValue={"Doe"}
+
                   label="Nom"
                   name="lastName"
                   autoComplete="family-name"
@@ -120,6 +125,8 @@ export default function SignUp(props: any) {
                   required
                   fullWidth
                   id="email"
+                  defaultValue={"joedoe@protonmail.com"}
+
                   label="Addresse email "
                   name="email"
                   autoComplete="email"
@@ -130,6 +137,8 @@ export default function SignUp(props: any) {
                 <TextField
                   required
                   fullWidth
+                  defaultValue={"!1Password"}
+
                   name="password"
                   label="Mot de passe"
                   type="password"
@@ -142,6 +151,8 @@ export default function SignUp(props: any) {
                 <TextField
                   required
                   fullWidth
+                  defaultValue={"!1Password"}
+
                   name="password-confirmation"
                   label="Confirmation du mot de passe"
                   type="password"
@@ -153,6 +164,8 @@ export default function SignUp(props: any) {
                 <TextField
                   required
                   fullWidth
+                  defaultValue={"0601020304"}
+
                   name="phoneNumber"
                   label="Numéro de téléphone"
                   type="text"
@@ -165,6 +178,8 @@ export default function SignUp(props: any) {
                 <TextField
                   required
                   fullWidth
+                  defaultValue={"0987654321"}
+
                   name="socialSecurityNumber"
                   label="Numéro de sécurité sociale"
                   type="text"
@@ -179,6 +194,8 @@ export default function SignUp(props: any) {
                 <TextField
                   required
                   fullWidth
+                  defaultValue={"1 rue des Fleurs"}
+
                   name="adress"
                   label="Adresse postale"
                   type="text"
@@ -192,6 +209,8 @@ export default function SignUp(props: any) {
                   required
                   fullWidth
                   name="city"
+                  defaultValue={"Paris"}
+
                   label="Ville"
                   type="text"
                   id="city"
@@ -203,6 +222,8 @@ export default function SignUp(props: any) {
                 <TextField
                   required
                   fullWidth
+                  defaultValue={"75001"}
+
                   name="postalCode"
                   label="Code postal"
                   type="text"

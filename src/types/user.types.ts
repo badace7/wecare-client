@@ -2,7 +2,8 @@ export type user = {
   id?: string;
   email?: string;
   password?: string;
-  access_token: string;
+  access_token?: string | undefined;
+  refresh_token?: string | undefined;
   first_name?: string;
   last_name?: string;
   gender?: string;
@@ -11,9 +12,13 @@ export type user = {
   address?: string;
   social_security_number?: string;
   phone_number?: string;
-  refresh_token?: string;
 };
-
+export type userToken = {
+  id?: string;
+  role?: string;
+  iat?: number;
+  exp?: number;
+};
 export type userStore = {
   user: user | null;
   isLogged: boolean;
@@ -30,12 +35,7 @@ export type payload = { // payload for user
       role: string;
 }
 
-export type userToken = {
-  id: string;
-  role: string;
-  iat: number;
-  exp: number;
-};
+
 
 /**
  * @REVOIR TYPE POUR ACCESS TOKEN
