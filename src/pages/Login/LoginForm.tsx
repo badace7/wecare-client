@@ -37,10 +37,7 @@ const LoginForm = (props: any) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log(`@@ login data`, data)
-    
-    
-
+    console.log(`@@ login data`, data);
   };
   return (
     <ThemeProvider theme={theme}>
@@ -115,12 +112,11 @@ const LoginForm = (props: any) => {
                 </Link>
               </Grid>
               <Grid item>
-              <Link href="#" variant="body2">
-                Mot de passe oublié ?
-              </Link>
+                <Link href="#" variant="body2">
+                  Mot de passe oublié ?
+                </Link>
+              </Grid>
             </Grid>
-            </Grid>
-            
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />

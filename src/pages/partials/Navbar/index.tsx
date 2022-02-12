@@ -28,6 +28,11 @@ import { userStore } from "../../../types/user.types";
 import { Link } from "react-router-dom";
 
 const Nav = styled("nav")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "row",
+  width: "100%",
+  justifyContent: "space-between",
+  alignItems: "center",
   backgroundColor: "#005AA1",
   height: "5.5rem",
 }));
@@ -35,6 +40,7 @@ const Nav = styled("nav")(({ theme }) => ({
 const NavLink = styled(Link)`
   text-decoration: none;
   color: white;
+  min-width: 15%;
 `;
 
 const Logo = styled(Link)`
@@ -67,7 +73,7 @@ const Search = styled("div")(({ theme }) => ({
 const LinkContainer = styled("div")(({ theme }) => ({
   // color: "red",
   display: "flex",
-  justifyContent: "space-evenly",
+  // justifyContent: "space-evenly",
   fontSize: "1rem",
   alignItems: "center",
 }));
@@ -217,39 +223,39 @@ export default function Navbar() {
   // }, [])
 
   return (
-    <Nav
-    // sx={{ flexGrow: 1 }}
-    >
+    <Nav>
+      <Logo to="/" color="inherit" sx={{ marginLeft: "1%" }}>
+        WeCare
+      </Logo>
       <LinkContainer>
-        <Logo to="/" color="inherit">
-          WeCare Logo
-        </Logo>
-
         {/* <NavLink to="/" color="inherit">
           Accueil
         </NavLink> */}
 
-        {userState.isLogged ? (
-          <NavLink to="/" color="inherit">
-            Compte{" "}
-          </NavLink>
-        ) : (
-          <Box
-            sx={{
-              display: "flex",
-              backgroundColor: "red",
-              justifyContent: "center",
-            }}
-          >
-            {" "}
-            <NavLink to="/register" color="inherit">
-              S'inscrire
+        <Box
+          sx={{
+            marginRight: "1%",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            // justifyContent: "center",
+          }}
+        >
+          {userState.isLogged ? (
+            <NavLink to="/" color="inherit">
+              Compte
             </NavLink>
-            <NavLink to="/login" color="inherit">
-              Se connecter
-            </NavLink>
-          </Box>
-        )}
+          ) : (
+            <>
+              <NavLink to="/register" color="inherit">
+                S'inscrire
+              </NavLink>
+              <NavLink to="/login" color="inherit">
+                Se connecter
+              </NavLink>
+            </>
+          )}
+        </Box>
       </LinkContainer>
       {renderMobileMenu}
       {renderMenu}
