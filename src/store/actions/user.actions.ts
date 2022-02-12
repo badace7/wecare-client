@@ -14,6 +14,7 @@ export const login = (user: user) => {
     localStorage.setItem("access_token", user.access_token);
     console.log(`!! localStorage.getItem("access_token")`,localStorage.getItem("access_token"));
   }
+  
   // TODO
   // if(user.refresh_token) {
   //   localStorage.setItem("refresh_token", user.refresh_token);
@@ -21,21 +22,9 @@ export const login = (user: user) => {
   // }
   // decode token.role
   
-  // const decodedToken: userToken = jwt_decode(user.access_token);
-  // console.log(`decodedToken:`, decodedToken.id);
-  // console.log(`decodedToken:`, decodedToken.role);
-  
-  // user.id = decodedToken.id;
-  // console.log(`USER`, user);
-  
-  // const userStore = useSelector((state: { user: userStore }) => state.user);
-  // console.log(`decodedToken ROLE >>>>>>> :`, decodedToken.role);
-  // user.role = decodedToken.role;
   const decodedToken: userToken = (user.access_token) ? jwt_decode(user.access_token) : {};
   
-  // console.log(`user store > role :`,
-  // userStore.role
-  // );
+
   console.log(`user POP>>>`, user);
   
   return {
@@ -46,23 +35,44 @@ export const login = (user: user) => {
     },
   };
 };
-
-// removes the access token from the localStorage, this will logout the user
-/**
- * @func logout Is the logout action triggerd by the user.
- * @returns The type if the action and remove the user datas in the payload property.
- */
-export const logout = () => {
-  localStorage.removeItem("access_token");
-  return {
-    type: "LOGOUT",
-    payload: false,
-  };
-};
-
 export const register = (user: user) => {
   return {
     type: "REGISTER",
     payload: user,
   };
 };
+// removes the access token from the localStorage, this will logout the user
+/**
+ * @func logout Is the logout action triggerd by the user.
+ * @returns The type if the action and remove the user datas in the payload property.
+ */
+export const logout = () => {
+  console.log(`!! user logout`);
+  localStorage.removeItem("access_token");
+  console.log("!! localStorage:",localStorage);
+  
+  return {
+    type: "LOGOUT",
+    payload: false,
+  };
+};
+
+export const getAuthenticatedUser = (user: user) => {
+
+    const access_token = localStorage.getItem("access_token");
+    console.log(`!! localStorage.getItem("access_token")`,access_token);
+
+
+  const decodedToken: userToken = (access_token) ? jwt_decode(access_token) : {};
+
+  console.log(`!!ROLE `,decodedToken);
+
+  return {
+    type: "PERSISTSESSION",
+    payload: {
+      user: user,
+      role: decodedToken.role,
+    },
+  };
+};
+

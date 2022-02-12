@@ -1,6 +1,10 @@
 import * as React from "react";
-
 import { useState, useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { userStore } from "../../../types/user.types";
+import { logout } from "../../../store/actions/user.actions";
+
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -19,8 +23,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { green } from "@mui/material/colors";
 
-import { useSelector, useDispatch } from "react-redux";
-import { userStore } from "../../../types/user.types";
+
 
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -115,6 +118,7 @@ export default function Navbar() {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const userState = useSelector((state: { user: userStore }) => state.user);
+  const dispatch = useDispatch();
   // console.log("userState >>> :", userState);
 
   const handleProfileMenuOpen = (event: any) => {
@@ -133,6 +137,20 @@ export default function Navbar() {
   const handleMobileMenuOpen = (event: any) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  function getUserData() {
+    return (dispatch: any, getState: any) => {
+      const state = getState();
+      console.log(`!!! store state: `, state);
+      // const userLoggedIn = state.currentUser.isLogged;
+    };
+  }
+
+  const handleLogout = async () => {
+    console.log("logout button click");
+    await dispatch(logout());
+    console.log("logout called");
+  }
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -209,19 +227,6 @@ export default function Navbar() {
     </Menu>
   );
 
-  function getUserData() {
-    return (dispatch: any, getState: any) => {
-      const state = getState();
-      console.log(`!!! store state: `, state);
-      // const userLoggedIn = state.currentUser.isLogged;
-    };
-  }
-
-  // useEffect(() => {
-  //   getUserData();
-  //   return () => {};
-  // }, [])
-
   return (
     <Nav>
       <Logo to="/" color="inherit" sx={{ marginLeft: "1%" }}>
@@ -242,9 +247,14 @@ export default function Navbar() {
           }}
         >
           {userState.isLogged ? (
-            <NavLink to="/" color="inherit">
+            <>
+              <NavLink to="/" color="inherit">
               Compte
-            </NavLink>
+              </NavLink>
+              <NavLink onClick={handleLogout} to="/" color="inherit">
+              Déconnexion
+              </NavLink>
+            </>
           ) : (
             <>
               <NavLink to="/register" color="inherit">

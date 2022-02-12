@@ -2,7 +2,7 @@ export type user = {
   id?: string;
   email?: string;
   password?: string;
-  access_token?: string | undefined;
+  access_token?: string | undefined | null;
   refresh_token?: string | undefined;
   first_name?: string;
   last_name?: string;

@@ -1,17 +1,26 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import AppRouter from "./Router"
 import Navbar from "./pages/partials/Navbar";
 import Footer from "./pages/partials/Footer";
-import { useEffect } from "react";
+
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./Router"
 import http from "./services/config";
+
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { userStore } from "./types/user.types";
+import { useDispatch } from "react-redux";
+
+import { getAuthenticatedUser } from "./store/actions/user.actions";
+
+import { user } from "./types/user.types";
 
 
 import "./App.css";
 
 function App() {
+
+  const dispatch = useDispatch();
 
 
   const state = useSelector(initialState => initialState);
@@ -19,6 +28,9 @@ function App() {
   // const state = useSelector(initialState => initialState); // TODO: Test TS Redux debug
 
   
+// if token exists in localStorage
+// get user data from api
+// set user data to redux
 
   useEffect(() => {
     const access_token = localStorage.getItem('access_token');
@@ -29,9 +41,13 @@ function App() {
         // ,
         // access_token,
       ).then((result) => {
-        console.log(`!! set User: `, result);
+        const user: user = result.data;
+        dispatch(getAuthenticatedUser(user));
+
+
       })
-console.log(`@@! state`, state);
+
+
 
       // const {user} = state;
       // console.log(`!! initialState`, user);

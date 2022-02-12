@@ -53,11 +53,20 @@ console.log(`user.reducer > payload>>>>>`,payload);
     //       isLogged: false,
     //     };
 
+    case "PERSISTSESSION": // TODO? find a better name?
+    console.log("!!! PERSISTSESSION", payload)
+      return { 
+        // ...state,
+        user: payload.user,
+        isLogged: initialState.isLogged,
+        role: payload.role
+      };
+
     case "LOGOUT":
       return { 
-        ...state,
         user: null,
         isLogged: false,
+        role: "visitor"
       };
     default:
       return state;
