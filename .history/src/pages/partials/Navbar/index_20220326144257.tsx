@@ -246,10 +246,7 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <NavLink to="/register/practitionner" color="inherit" sx={{}}>
-              Vous êtes praticien ?
-            </NavLink>
-
+            {" "}
             <NavLink to="/register" color="inherit" sx={{}}>
               S'inscrire
             </NavLink>

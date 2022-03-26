@@ -41,7 +41,7 @@ const Nav = styled("nav")(({ theme }) => ({
 const NavLink = styled(Link)`
   text-decoration: none;
   color: white;
-  /* min-width: 15%; */
+  min-width: 15%;
 `;
 
 const Logo = styled(Link)`
@@ -235,29 +235,35 @@ export default function Navbar() {
           Accueil
         </NavLink> */}
 
-        {userState.isLogged ? (
-          <>
-            <NavLink to="/" color="inherit">
-              Compte
-            </NavLink>
-            <NavLink onClick={handleLogout} to="/" color="inherit">
-              Déconnexion
-            </NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to="/register/practitionner" color="inherit" sx={{}}>
-              Vous êtes praticien ?
-            </NavLink>
-
-            <NavLink to="/register" color="inherit" sx={{}}>
-              S'inscrire
-            </NavLink>
-            <NavLink to="/login" color="inherit" sx={{}}>
-              Se connecter
-            </NavLink>
-          </>
-        )}
+        <Box
+          sx={{
+            marginRight: "1%",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            // justifyContent: "center",
+          }}
+        >
+          {userState.isLogged ? (
+            <>
+              <NavLink to="/" color="inherit">
+                Compte
+              </NavLink>
+              <NavLink onClick={handleLogout} to="/" color="inherit">
+                Déconnexion
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to="/register" color="inherit">
+                S'inscrire
+              </NavLink>
+              <NavLink to="/login" color="inherit">
+                Se connecterAAA
+              </NavLink>
+            </>
+          )}
+        </Box>
       </LinkContainer>
       {renderMobileMenu}
       {renderMenu}

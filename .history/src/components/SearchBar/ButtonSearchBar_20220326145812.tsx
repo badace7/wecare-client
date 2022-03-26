@@ -21,6 +21,7 @@ export default function ButtonSearchBar() {
   function handleSearchButtonClick() {
     // process request
     //redirect to practitionners list
+    Router;
   }
 
   return (

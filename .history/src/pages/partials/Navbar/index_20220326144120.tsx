@@ -234,7 +234,18 @@ export default function Navbar() {
         {/* <NavLink to="/" color="inherit">
           Accueil
         </NavLink> */}
-
+        {/* 
+        <Box
+          sx={
+            {
+              // marginRight: "1%",
+              // display: "flex",
+              // flexDirection: "row",
+              // alignItems: "center",
+              // justifyContent: "center",
+            }
+          }
+        > */}
         {userState.isLogged ? (
           <>
             <NavLink to="/" color="inherit">
@@ -245,19 +256,22 @@ export default function Navbar() {
             </NavLink>
           </>
         ) : (
-          <>
-            <NavLink to="/register/practitionner" color="inherit" sx={{}}>
-              Vous êtes praticien ?
-            </NavLink>
-
-            <NavLink to="/register" color="inherit" sx={{}}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              backgroundColor: "red",
+            }}
+          >
+            <NavLink to="/register" color="inherit">
               S'inscrire
             </NavLink>
             <NavLink to="/login" color="inherit" sx={{}}>
               Se connecter
             </NavLink>
-          </>
+          </Box>
         )}
+        {/* </Box> */}
       </LinkContainer>
       {renderMobileMenu}
       {renderMenu}

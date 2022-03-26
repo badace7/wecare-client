@@ -26,10 +26,8 @@ http.interceptors.response.use(
 
     try {
       // const response = await http.get("/users/auth/refresh"); // sends back a access_token
-      // console.log(response);
       // const access_token = response.data.access_token;
-// refresh access_token
-console.log(`axios (http) on reponse action`)
+      console.log(`axios (http) on reponse action`)
       // localStorage.setItem("access_token", access_token);
       // error.hasRefreshedToken = true;
 

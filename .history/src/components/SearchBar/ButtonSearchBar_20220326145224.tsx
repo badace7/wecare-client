@@ -1,7 +1,7 @@
+import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material";
-import { Router } from "react-router-dom";
 
 // const StyledButtonSearchBar = styled('div')(({theme}) => ({
 //   height: "5rem",
@@ -26,9 +26,7 @@ export default function ButtonSearchBar() {
   return (
     <div>
       <Stack spacing={2} direction="row">
-        <ButtonValid onClick={handleSearchButtonClick} variant="contained">
-          Rechercher
-        </ButtonValid>
+        <ButtonValid variant="contained">Rechercher</ButtonValid>
       </Stack>
     </div>
   );
