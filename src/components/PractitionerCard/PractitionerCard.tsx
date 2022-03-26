@@ -19,10 +19,12 @@ export default function PractitionerCard(
   const { firstName, lastName, photo, specialty, address, phoneNumber } =
     IPractitionerCardProps.practitionerData;
 
-  let navigate = useNavigate;
+  let navigate = useNavigate();
 
   const handleButtonClick = () => {
     //redirect to practitioner's page | api request
+    let practitionerName = "jacques-dupre";
+    navigate("jacques-dupre");
   };
 
   return (
