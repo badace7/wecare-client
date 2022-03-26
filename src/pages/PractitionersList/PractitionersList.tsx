@@ -41,7 +41,7 @@ export default function PractitionersList() {
         alignItems: "center",
       }}
     >
-      <Typography variant="h2" sx={{ fontSize: "1.5rem" }}>
+      <Typography variant="h2" sx={{ fontSize: "1.5rem", marginTop: "1.5%" }}>
         {"120"} résultats pour la recherche "{"Généraliste"}" à {"Paris"}
       </Typography>
 

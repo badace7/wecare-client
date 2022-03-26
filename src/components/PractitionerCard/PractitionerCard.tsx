@@ -42,17 +42,27 @@ export default function PractitionerCard(
           // width="12"
 
           sx={{
-            width: 128,
-            height: 128,
+            marginTop: "1%",
+            marginLeft: "1%",
+            marginRight: "1%",
+            width: 200,
+            height: 200,
             backgroundColor: "lightgrey!important",
             borderRadius: "100%",
           }}
           image="/static/images/cards/contemplative-reptile.jpg"
-          // alt="green iguana"
           alt=""
         />
-        <CardContent>
-          <Typography variant="h3" component="div">
+        <CardContent sx={{ width: "60%" }}>
+          <Typography
+            sx={
+              {
+                //   fontSize: "1.2rem",
+              }
+            }
+            variant="h3"
+            component="div"
+          >
             {`${firstName}  ${lastName}`}
           </Typography>
           <Typography>{specialty}</Typography>
