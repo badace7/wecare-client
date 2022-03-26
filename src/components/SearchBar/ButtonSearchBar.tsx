@@ -1,15 +1,15 @@
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material";
-import { Router } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // const StyledButtonSearchBar = styled('div')(({theme}) => ({
 //   height: "5rem",
 // }));
 
-const ButtonValid = styled(Button)`
-  height: 3.5rem;
-`;
+// const ButtonValid = styled(Button)`
+//   height: 3.5rem;
+// `;
 
 // export default styled(ShoppingCartIcon)`
 //   color: white;
@@ -18,17 +18,29 @@ const ButtonValid = styled(Button)`
 // `;
 
 export default function ButtonSearchBar() {
-  function handleSearchButtonClick() {
+  let navigate = useNavigate();
+  function handleSearchButtonClick(e: any) {
+    e.preventDefault(); // prevent form submission
+
     // process request
     //redirect to practitionners list
+    console.log(`!!button click`);
+
+    navigate("/practitioners");
   }
 
   return (
     <div>
       <Stack spacing={2} direction="row">
-        <ButtonValid onClick={handleSearchButtonClick} variant="contained">
+        <Button
+          onClick={(e: any) => handleSearchButtonClick(e)}
+          variant="contained"
+          sx={{
+            height: "3.5rem",
+          }}
+        >
           Rechercher
-        </ButtonValid>
+        </Button>
       </Stack>
     </div>
   );
